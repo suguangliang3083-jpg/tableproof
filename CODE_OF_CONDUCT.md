@@ -10,4 +10,4 @@ This standard applies in project repositories, discussions, events, and public r
 
 For sensitive conduct reports, contact the maintainer through the [GitHub profile](https://github.com/suguangliang3083-jpg) and request a private channel without posting incident details publicly. Reports should be handled promptly, confidentially, and with attention to conflicts of interest.
 
-This concise policy is inspired by the Contributor Covenant principles and may be replaced by the then-current Contributor Covenant text before public launch.
+This policy is based on the Contributor Covenant's core principles. Proposed changes should be discussed publicly unless doing so would expose a confidential report.

@@ -1,6 +1,4 @@
 interface:
   display_name: "TableProof"
-  short_description: "Audit CSV and TSV joins before they corrupt research data"
-  default_prompt: "Use $table-proof to audit these tables, confirm the scientific row entities and keys, and explain any unsafe join."
-policy:
-  allow_implicit_invocation: true
+  short_description: "Check CSV and TSV join keys and row counts"
+  default_prompt: "Use $table-proof to check these tables and explain any join-policy violations."

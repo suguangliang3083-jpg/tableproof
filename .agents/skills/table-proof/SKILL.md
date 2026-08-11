@@ -1,62 +1,77 @@
 ---
 name: table-proof
-description: Audit CSV or TSV joins before or after merging. Use for scientific table integration, metadata joins, row-loss checks, duplicate-key detection, join cardinality validation, orphan-key analysis, many-to-many expansion, or verification of an inner, left, right, or full result table.
+description: Check CSV or TSV joins with the tableproof CLI. Use when an agent needs to assess duplicate or blank keys, expected one-to-one/one-to-many/many-to-one/many-to-many relationships, unmatched records, predicted row counts, normalization risks, or an existing inner/left/right/full join result.
 ---
 
-# TableProof
+# Audit a table join
 
-Use the deterministic `tableproof` CLI to establish facts, then explain their scientific meaning. Never use an LLM judgment as the data verdict.
+Use `tableproof` for the audit result. Do not replace it with visual inspection or model judgment.
 
-## 1. Establish the join contract
+## Confirm the contract
 
-Before running an audit, obtain or confirm all of the following:
+Before running the command, confirm:
 
-- What entity does one row represent on the left?
-- What entity does one row represent on the right?
-- Which column or ordered composite columns form each join key?
-- Why is that key scientifically stable across collection, export, and analysis stages?
-- What relationship is allowed: `one-to-one`, `one-to-many`, `many-to-one`, or `many-to-many`?
-- How should unmatched left keys, unmatched right keys, and blank key components be treated?
+- what one row represents in each table;
+- the left and right key columns, in order;
+- why those keys should remain stable across collection, export, and analysis;
+- the allowed relationship: `one-to-one`, `one-to-many`, `many-to-one`, or `many-to-many`;
+- the policy for unmatched rows and blank key components;
+- the join type when checking an existing result.
 
-If the user already supplied these facts, restate the contract briefly and continue. Do not treat an apparently unique column as a scientifically stable primary key without confirmation.
+Ask only for missing information. A column that happens to be unique in one file is not automatically a stable identifier.
 
-Read [references/join-semantics.md](references/join-semantics.md) when choosing a relationship, interpreting a materialized result, or explaining a normalization hazard.
+Read [references/join-semantics.md](references/join-semantics.md) before choosing a relationship, interpreting result-table differences, or explaining normalization warnings.
 
-## 2. Run the deterministic audit
+## Boundaries
 
-Prefer a repository configuration when one exists:
+- Do not install software without permission.
+- Do not rewrite, trim, case-fold, deduplicate, aggregate, or overwrite input tables during an audit.
+- Do not convert identifiers to numbers or remove leading zeros.
+- Do not treat a normalization warning as proof that two identifiers refer to the same record.
+- Do not expose raw key examples unless the user has approved that disclosure.
+- Do not use this Skill as a substitute for checking non-key column provenance or scientific identifier policy.
+
+## Run the audit
+
+Use a repository configuration when available:
 
 ```text
 tableproof check --config tableproof.toml --format json --output tableproof-report.json
 ```
 
-For a one-off audit, run:
+For one join:
 
 ```text
 tableproof check --left A.tsv --right B.tsv --left-key id --right-key id --expect one-to-many --format json
 ```
 
-For a composite key, repeat each key option in the same component order. Add `--result merged.tsv --join-type left` only when verifying an existing output. Use `--result-key` if the result key name cannot be inferred.
+Repeat the key options in the same component order for composite keys. Add `--result merged.tsv --join-type left` only when checking an existing output. Use `--result-key` when the result key cannot be inferred.
 
-If the package is not installed but the current repository is TableProof, run `python -m tableproof` with the repository's `src` directory on `PYTHONPATH`. Otherwise, explain that `tableproof` must be installed; do not silently install software.
+If the executable is unavailable, try `python -m tableproof` only when the package is already installed. In a TableProof source checkout, use the repository's documented `PYTHONPATH=src` form. Otherwise stop and explain the missing runtime requirement.
 
-Treat exit codes as follows:
+Exit codes:
 
-- `0`: the configured failure threshold passed.
-- `1`: data violated an audit policy.
-- `2`: configuration, parsing, encoding, I/O, or CLI usage error; fix this before interpreting the data.
+- `0`: the configured failure threshold passed;
+- `1`: the data violated an audit policy;
+- `2`: the command, configuration, input, or result could not be read correctly. Resolve this before interpreting the data.
 
-## 3. Explain findings without changing data
+## Report the result
 
-Report the declared and observed relationship, duplicate/null counts, left and right orphan counts, all four predicted output sizes, expansion factors, and any result multiset differences. Explain which scientific records could be dropped, duplicated, or mis-associated.
+Give the user:
 
-Keep raw key examples hidden unless the user explicitly approves disclosure. Hashed examples are identifiers for comparing findings, not recoverable source values.
+1. the confirmed join contract;
+2. the CLI verdict and exit code;
+3. the observed relationship and duplicate/null counts;
+4. left and right unmatched counts;
+5. predicted rows for inner, left, right, and full joins;
+6. result row or key-multiset differences, when checked;
+7. a short explanation of the records at risk;
+8. separate next steps, without modifying the inputs.
 
-Separate recommendations from mutations. By default:
+Hashed key examples help match findings across reports. They do not reveal the source value, but they are not an anonymization guarantee.
 
-- Do not rewrite, trim, case-fold, deduplicate, aggregate, or overwrite source tables.
-- Do not choose a surviving duplicate row.
-- Do not convert identifiers to numbers or remove leading zeros.
-- Do not describe normalization collisions as confirmed matches.
+For worked command choices and acceptance checks, read [references/examples.md](references/examples.md).
 
-If the user requests a repair, first propose a new output path, an explicit transformation rule, provenance columns, and acceptance checks. Preserve the original files.
+## Handle repair requests
+
+When the user asks for a repair, propose the transformation first. Specify a new output path, the exact rule, provenance columns, and the audit that will be rerun. Keep the original files unchanged.

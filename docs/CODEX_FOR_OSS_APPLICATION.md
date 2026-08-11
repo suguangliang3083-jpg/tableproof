@@ -23,7 +23,7 @@ Use this document only after TableProof is public. Replace every placeholder wit
 
 ## Draft project description
 
-TableProof prevents invisible integrity errors in CSV/TSV joins used in research and data pipelines. Its dependency-free CLI checks exact single or composite keys, declared 1:1/1:N/N:1/N:N cardinality, blank and orphan keys, row-count expansion, and the exact key multiset of an existing result. A GitHub Action brings these checks into review, while an Agent Skill requires users to define row entities and scientifically stable keys before interpreting deterministic output. Source data is never modified and key examples are hashed by default.
+TableProof is a dependency-free CLI for checking CSV/TSV joins in research and data pipelines. It reports blank and duplicate keys, observed 1:1/1:N/N:1/N:N cardinality, unmatched records, predicted row counts, and key-multiset differences in an existing result. The GitHub Action runs the same checks in CI. The Agent Skill asks users to state the row entities, keys, and expected relationship before it invokes the CLI. Audits do not modify source data, and reports hash key examples by default.
 
 ## Ecosystem importance
 

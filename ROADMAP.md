@@ -1,36 +1,45 @@
-# Roadmap and evidence milestones
+# Roadmap
 
-TableProof is useful only if it prevents real, reproducible join failures. Stars are a communication target, not a substitute for adoption or maintenance.
+The roadmap follows reported use rather than a fixed calendar. Open an issue or discussion with a synthetic reproducer when possible.
 
-## Weeks 1–4: release v0.1.0
+## Released
 
-- Freeze v1 configuration and report semantics.
-- Ship strict CSV/TSV parsing, key multiplicities, relationship checks, predictions, result multiset validation, CLI, Action, and Skill.
-- Publish anonymized fixtures and a sub-two-minute demo using [`docs/DEMO_SCRIPT.md`](docs/DEMO_SCRIPT.md).
-- Reserve repository and PyPI names only after live availability checks.
-- Create signed `v0.1.0` and moving `v1` Git tags after CI passes.
+### v0.1.0 — 2026-08-11
 
-## Weeks 5–6: independent trials
+- CSV/TSV parsing and exact-string single or composite keys;
+- blank, duplicate, cardinality, and unmatched-key checks;
+- predicted rows for inner, left, right, and full joins;
+- result key-multiset validation;
+- text, JSON, and Markdown reports;
+- Python CLI, GitHub Action, and Agent Skill.
 
-- Invite maintainers from at least three independent public bioinformatics, laboratory-data, or general CSV projects.
-- Convert every reproducible report into a public issue or discussion and a minimal regression fixture with permission.
-- Publish v0.1.x fixes; do not count private praise as public adoption.
+## v0.1.x maintenance
 
-## Weeks 7–8: evidence and v0.2
+- Correct documented or reproducible defects without changing report semantics unnecessarily.
+- Keep the CLI dependency-free and preserve exit-code behavior.
+- Update CI action runtimes as GitHub retires older Node.js versions.
+- Improve installation and examples when users report unclear steps.
 
-- Publish 2–3 consented case studies showing the declared contract, finding, correction, and rerun.
-- Release v0.2.0 after at least two feedback-driven releases and five substantive public issues/discussions have been handled.
-- Record 100 stars as an outreach target only. Never buy, exchange, automate, or misrepresent stars.
-- Submit the Codex for Open Source application only with current, publicly verifiable evidence.
+## v0.2 gate
 
-## Post-v0.2 candidates
+Plan v0.2 after at least three independent public uses are documented and enough feedback exists to justify interface changes. Candidate work must be tied to an issue, discussion, or case study. Likely areas include:
 
-- Bounded-memory/spill-to-disk key counting for very large files.
-- Explicit schema mapping for result files with coalesced or renamed composite keys.
-- Optional column-level provenance checks beyond the key multiset.
-- SARIF output after a stable, reviewed mapping from findings to locations exists.
-- Additional formats only after CSV/TSV behavior remains stable; XLSX and Parquet are out of v0.1 scope.
+- bounded-memory or spill-to-disk key counting;
+- clearer result-key mapping for renamed or coalesced composite keys;
+- optional checks for selected non-key provenance;
+- SARIF output with a reviewed finding-to-location mapping.
 
-## Release gate
+XLSX, Parquet, and a hosted service are not planned for v0.1.x.
 
-Every release requires green tests on Windows, Linux, and macOS; Python 3.11–3.14; a working example audit; reviewed schema changes; changelog notes; and no raw sensitive fixture data.
+## Release checks
+
+Every release requires:
+
+- tests on Windows, Linux, and macOS with Python 3.11–3.14;
+- a passing example audit;
+- schema review for report changes;
+- changelog notes;
+- inspection of fixtures for sensitive data;
+- verification of the GitHub Action and Agent Skill instructions.
+
+Adoption and maintenance evidence is recorded in [`docs/CODEX_FOR_OSS_APPLICATION.md`](docs/CODEX_FOR_OSS_APPLICATION.md). Stars are not treated as proof that the tool is in use.
