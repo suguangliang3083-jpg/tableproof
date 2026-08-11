@@ -1,0 +1,32 @@
+name: Adoption report
+description: Share a verifiable public use or case study
+title: "[adoption] "
+labels: ["adoption"]
+body:
+  - type: input
+    id: repository
+    attributes:
+      label: Public repository or case-study URL
+    validations:
+      required: true
+  - type: textarea
+    id: workflow
+    attributes:
+      label: Workflow and join contract
+      description: Describe the row entities, keys, relationship, and where TableProof runs.
+    validations:
+      required: true
+  - type: textarea
+    id: outcome
+    attributes:
+      label: Outcome
+      description: What did TableProof prevent, detect, or verify? Do not disclose private records.
+    validations:
+      required: true
+  - type: checkboxes
+    id: consent
+    attributes:
+      label: Public evidence consent
+      options:
+        - label: This public report may be linked from TableProof's adoption ledger.
+          required: true

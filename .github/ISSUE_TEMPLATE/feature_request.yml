@@ -1,0 +1,24 @@
+name: Feature request
+description: Propose an evidence-backed improvement
+title: "[feature] "
+labels: ["enhancement"]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: Data-integrity problem
+      description: Describe the failure mode, not only the desired interface.
+    validations:
+      required: true
+  - type: textarea
+    id: example
+    attributes:
+      label: Minimal privacy-safe example
+    validations:
+      required: true
+  - type: textarea
+    id: behavior
+    attributes:
+      label: Proposed deterministic behavior
+    validations:
+      required: true

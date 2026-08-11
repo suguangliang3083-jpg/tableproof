@@ -1,0 +1,50 @@
+name: "TableProof"
+description: "Audit CSV/TSV join cardinality and materialized result integrity"
+author: "TableProof contributors"
+branding:
+  icon: "check-square"
+  color: "blue"
+inputs:
+  config:
+    description: "Path to tableproof.toml, relative to the repository root"
+    required: false
+    default: "tableproof.toml"
+  fail-on:
+    description: "Failure threshold: error or warning"
+    required: false
+    default: "error"
+  report-dir:
+    description: "Directory for JSON and Markdown reports"
+    required: false
+    default: "tableproof-reports"
+outputs:
+  report-json:
+    description: "Absolute path to the JSON report"
+    value: ${{ steps.audit.outputs.report-json }}
+  report-markdown:
+    description: "Absolute path to the Markdown report"
+    value: ${{ steps.audit.outputs.report-markdown }}
+  verdict:
+    description: "pass or fail"
+    value: ${{ steps.audit.outputs.verdict }}
+  errors:
+    description: "Error finding count"
+    value: ${{ steps.audit.outputs.errors }}
+  warnings:
+    description: "Warning finding count"
+    value: ${{ steps.audit.outputs.warnings }}
+runs:
+  using: "composite"
+  steps:
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: "3.11"
+    - id: audit
+      name: Audit table joins
+      shell: bash
+      env:
+        INPUT_CONFIG: ${{ inputs.config }}
+        INPUT_FAIL_ON: ${{ inputs.fail-on }}
+        INPUT_REPORT_DIR: ${{ inputs.report-dir }}
+      run: python "$GITHUB_ACTION_PATH/scripts/run_action.py"

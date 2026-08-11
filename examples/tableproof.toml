@@ -1,0 +1,19 @@
+version = 1
+
+[report]
+show_raw_keys = false
+sample_limit = 5
+fail_on = "error"
+
+[[joins]]
+name = "samples-to-results"
+left = "data/samples.tsv"
+right = "data/results.tsv"
+left_keys = ["sample_id"]
+right_keys = ["sample_id"]
+relationship = "one-to-many"
+left_unmatched = "warn"
+right_unmatched = "warn"
+null_keys = "error"
+result = "data/merged.tsv"
+join_type = "left"

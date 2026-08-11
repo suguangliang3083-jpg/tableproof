@@ -1,0 +1,35 @@
+name: Bug report
+description: Report a reproducible incorrect result or failure
+title: "[bug] "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: "Do not upload sensitive data. Use a minimal synthetic fixture."
+  - type: input
+    id: version
+    attributes:
+      label: TableProof version
+      placeholder: "0.1.0"
+    validations:
+      required: true
+  - type: textarea
+    id: contract
+    attributes:
+      label: Join contract
+      description: What does one row represent on each side, what are the ordered keys, and what relationship is expected?
+    validations:
+      required: true
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: Minimal reproduction
+      description: Include synthetic tables, command/config, exit code, and privacy-safe output.
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+    validations:
+      required: true
