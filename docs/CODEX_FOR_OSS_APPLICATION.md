@@ -4,7 +4,7 @@ Use this document only after TableProof is public. Replace every placeholder wit
 
 ## Submission snapshot
 
-**Checked at (UTC):** `2026-08-11T12:08:18Z; refresh immediately before submission`
+**Checked at (UTC):** `2026-08-11T13:07:44Z; refresh immediately before submission`
 
 **Repository:** `https://github.com/suguangliang3083-jpg/tableproof`  
 **Applicant GitHub account:** `https://github.com/suguangliang3083-jpg`  
@@ -12,12 +12,12 @@ Use this document only after TableProof is public. Replace every placeholder wit
 
 | Metric | Current value | Public evidence | Counting rule |
 |---|---:|---|---|
-| GitHub stars | `0` | `https://github.com/suguangliang3083-jpg/tableproof` | Checked immediately after v0.1.0 publication; refresh at submission; no exchanges or paid/automated stars. |
+| GitHub stars | `0` | `https://github.com/suguangliang3083-jpg/tableproof` | Checked after v0.1.1 publication; refresh at submission; no exchanges or paid/automated stars. |
 | PyPI downloads | `Not yet measured` | `https://pypi.org/project/tableproof/` | Do not infer a total from release existence; state the exact period and statistics source when reporting. |
 | Independent public adopting repositories | `0` | `None yet` | Exclude TableProof-owned demos and forks without actual configuration/use. |
 | Verifiable user case studies | `0` | `None yet` | Public, consented, reproducible description. |
-| Published releases | `1 (v0.1.0)` | `https://github.com/suguangliang3083-jpg/tableproof/releases/tag/v0.1.0` | Count public GitHub releases only. |
-| Feedback-driven releases after v0.1 | `0` | `None yet` | Link change to independent feedback. |
+| Published releases | `2 (v0.1.0, v0.1.1)` | `https://github.com/suguangliang3083-jpg/tableproof/releases` | Count public GitHub releases only. |
+| Feedback-driven releases after v0.1 | `0 independently verifiable` | `None yet` | v0.1.1 responded to maintainer feedback, but no public feedback source is available, so it is not counted here. |
 | Substantive issues/discussions handled | `0` | `None yet` | Exclude spam, duplicate bookkeeping, and self-created padding. |
 | Active contributors | `1 initial maintainer` | `https://github.com/suguangliang3083-jpg/tableproof/graphs/contributors` | Refresh after publication using GitHub's displayed definition. |
 
