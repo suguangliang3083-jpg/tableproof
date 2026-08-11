@@ -6,7 +6,7 @@ TableProof is a zero-runtime-dependency Python CLI, GitHub Action, and Agent Ski
 
 [中文指南](README.zh-CN.md) · [Configuration](docs/CONFIGURATION.md) · [Report Schema v1](docs/REPORT_SCHEMA.md) · [Roadmap](ROADMAP.md)
 
-> Status: v0.1.0 initial release. The GitHub owner is verified and the PyPI name was unoccupied when checked on 2026-08-11, but PyPI ownership begins only after a successful upload. No adoption, download, star, or program-acceptance claims are made here.
+> Status: v0.1.0 was published on GitHub and PyPI on 2026-08-11 after the full CI matrix passed. No independent adoption, download, star, or program-acceptance claims are made here.
 
 ## Why this exists
 
@@ -31,7 +31,7 @@ python -m pip install .
 tableproof --version
 ```
 
-After the package name is reserved and v0.1.0 is published, the intended PyPI command is:
+Install the published package from PyPI:
 
 ```bash
 python -m pip install tableproof

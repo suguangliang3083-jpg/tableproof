@@ -4,18 +4,19 @@ Use this document only after TableProof is public. Replace every placeholder wit
 
 ## Submission snapshot
 
-**Checked at (UTC):** `2026-08-11; refresh immediately before submission`  
+**Checked at (UTC):** `2026-08-11T12:08:18Z; refresh immediately before submission`
+
 **Repository:** `https://github.com/suguangliang3083-jpg/tableproof`  
 **Applicant GitHub account:** `https://github.com/suguangliang3083-jpg`  
 **Maintainer permission evidence:** `Repository owner; verify on the public repository and release pages before submission`
 
 | Metric | Current value | Public evidence | Counting rule |
 |---|---:|---|---|
-| GitHub stars | `0 before publication` | `https://github.com/suguangliang3083-jpg/tableproof` | Refresh at submission; no exchanges or paid/automated stars. |
-| PyPI downloads | `0 before publication` | `https://pypi.org/project/tableproof/` | Refresh only after a successful publication; state exact period and source. |
+| GitHub stars | `0` | `https://github.com/suguangliang3083-jpg/tableproof` | Checked immediately after v0.1.0 publication; refresh at submission; no exchanges or paid/automated stars. |
+| PyPI downloads | `Not yet measured` | `https://pypi.org/project/tableproof/` | Do not infer a total from release existence; state the exact period and statistics source when reporting. |
 | Independent public adopting repositories | `0` | `None yet` | Exclude TableProof-owned demos and forks without actual configuration/use. |
 | Verifiable user case studies | `0` | `None yet` | Public, consented, reproducible description. |
-| Published releases | `0 before publication` | `https://github.com/suguangliang3083-jpg/tableproof/releases` | Count public tags/releases only. |
+| Published releases | `1 (v0.1.0)` | `https://github.com/suguangliang3083-jpg/tableproof/releases/tag/v0.1.0` | Count public GitHub releases only. |
 | Feedback-driven releases after v0.1 | `0` | `None yet` | Link change to independent feedback. |
 | Substantive issues/discussions handled | `0` | `None yet` | Exclude spam, duplicate bookkeeping, and self-created padding. |
 | Active contributors | `1 initial maintainer` | `https://github.com/suguangliang3083-jpg/tableproof/graphs/contributors` | Refresh after publication using GitHub's displayed definition. |

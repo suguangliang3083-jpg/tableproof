@@ -2,7 +2,7 @@
 
 ## Supported versions
 
-Security fixes are provided for the latest released minor line. Before the first public release, report issues against the current default branch.
+Security fixes are provided for the latest released minor line, currently `0.1.x`. Report unreleased regressions against the current default branch.
 
 ## Reporting a vulnerability
 

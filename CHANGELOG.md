@@ -4,7 +4,7 @@ All notable changes will be documented here. This project follows Semantic Versi
 
 ## [Unreleased]
 
-- Public repository creation, name reservation, package publication, and independent adoption evidence remain pending maintainer actions.
+- No changes yet.
 
 ## [0.1.0] - 2026-08-11
 
